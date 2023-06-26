@@ -15,6 +15,11 @@
 		0E6B15C82A49668B003CD344 /* TaskToolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B15C72A49668B003CD344 /* TaskToolUITests.swift */; };
 		0E6B15CA2A49668B003CD344 /* TaskToolUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B15C92A49668B003CD344 /* TaskToolUITestsLaunchTests.swift */; };
 		0E6B15E12A497375003CD344 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6B15E02A497375003CD344 /* HomeView.swift */; };
+		0E71A4612A49797400A51BA0 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71A4602A49797400A51BA0 /* SegmentView.swift */; };
+		0E71A4622A497B8E00A51BA0 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71A4602A49797400A51BA0 /* SegmentView.swift */; };
+		0E71A4632A497B8F00A51BA0 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71A4602A49797400A51BA0 /* SegmentView.swift */; };
+		0E71A4652A49802D00A51BA0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71A4642A49802D00A51BA0 /* HomeViewModel.swift */; };
+		0E71A4672A49803700A51BA0 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71A4662A49803700A51BA0 /* HomeModel.swift */; };
 		14B72CA2682063DF1D3A9570 /* Pods_TaskTool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90EB30D81147366B5636732 /* Pods_TaskTool.framework */; };
 		2853EBA8A383B1637F740195 /* Pods_TaskTool_TaskToolUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1B27DA3BB47ADC459E9F55 /* Pods_TaskTool_TaskToolUITests.framework */; };
 		84D6EA581ED8AA4DF136A1F0 /* Pods_TaskToolTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6CD9214EA6583D29796666 /* Pods_TaskToolTests.framework */; };
@@ -49,6 +54,9 @@
 		0E6B15C72A49668B003CD344 /* TaskToolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskToolUITests.swift; sourceTree = "<group>"; };
 		0E6B15C92A49668B003CD344 /* TaskToolUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskToolUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0E6B15E02A497375003CD344 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		0E71A4602A49797400A51BA0 /* SegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
+		0E71A4642A49802D00A51BA0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		0E71A4662A49803700A51BA0 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		2C1B27DA3BB47ADC459E9F55 /* Pods_TaskTool_TaskToolUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaskTool_TaskToolUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		440FABD860FDCD766B1CC3FC /* Pods-TaskTool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTool.release.xcconfig"; path = "Target Support Files/Pods-TaskTool/Pods-TaskTool.release.xcconfig"; sourceTree = "<group>"; };
 		9C670DB7C37C9CBD6BD0B10A /* Pods-TaskTool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTool.debug.xcconfig"; path = "Target Support Files/Pods-TaskTool/Pods-TaskTool.debug.xcconfig"; sourceTree = "<group>"; };
@@ -115,8 +123,8 @@
 			children = (
 				0E6B15AC2A496688003CD344 /* TaskToolApp.swift */,
 				0E6B15D82A4972BA003CD344 /* View */,
-				0E6B15D72A4972B4003CD344 /* Model */,
 				0E6B15D62A4972A9003CD344 /* ViewModel */,
+				0E6B15D72A4972B4003CD344 /* Model */,
 				0E6B15B02A49668B003CD344 /* Assets.xcassets */,
 				0E6B15B22A49668B003CD344 /* Preview Content */,
 			);
@@ -151,6 +159,7 @@
 		0E6B15D62A4972A9003CD344 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0E71A4642A49802D00A51BA0 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -158,6 +167,7 @@
 		0E6B15D72A4972B4003CD344 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0E71A4662A49803700A51BA0 /* HomeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,6 +202,7 @@
 		0E6B15DB2A497324003CD344 /* SegmentView */ = {
 			isa = PBXGroup;
 			children = (
+				0E71A4602A49797400A51BA0 /* SegmentView.swift */,
 			);
 			path = SegmentView;
 			sourceTree = "<group>";
@@ -484,6 +495,9 @@
 			files = (
 				0E6B15E12A497375003CD344 /* HomeView.swift in Sources */,
 				0E6B15AF2A496688003CD344 /* ContentView.swift in Sources */,
+				0E71A4672A49803700A51BA0 /* HomeModel.swift in Sources */,
+				0E71A4612A49797400A51BA0 /* SegmentView.swift in Sources */,
+				0E71A4652A49802D00A51BA0 /* HomeViewModel.swift in Sources */,
 				0E6B15AD2A496688003CD344 /* TaskToolApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +506,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E71A4622A497B8E00A51BA0 /* SegmentView.swift in Sources */,
 				0E6B15BE2A49668B003CD344 /* TaskToolTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E6B15CA2A49668B003CD344 /* TaskToolUITestsLaunchTests.swift in Sources */,
+				0E71A4632A497B8F00A51BA0 /* SegmentView.swift in Sources */,
 				0E6B15C82A49668B003CD344 /* TaskToolUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
