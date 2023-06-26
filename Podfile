@@ -6,19 +6,17 @@ target 'TaskTool' do
   use_frameworks!
 
   # Pods for TaskTool
-  pod 'RealmSwift'
+  pod 'RealmSwift' 
 
   target 'TaskToolTests' do
     inherit! :search_paths
     # Pods for testing
-      pod 'RealmSwift'
-
+      pod 'RealmSwift' 
   end
 
   target 'TaskToolUITests' do
     # Pods for testing
-  pod 'RealmSwift'
-
+    pod 'RealmSwift' 
   end
 
 end
