@@ -23,6 +23,7 @@
 		0E71A4692A4AB7F700A51BA0 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71A4682A4AB7F700A51BA0 /* TitleView.swift */; };
 		0E71A46B2A4AB81D00A51BA0 /* SegmentSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71A46A2A4AB81D00A51BA0 /* SegmentSetView.swift */; };
 		0E71A46D2A4AB82F00A51BA0 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71A46C2A4AB82F00A51BA0 /* StatusView.swift */; };
+		0E71A46F2A4AB95900A51BA0 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71A46E2A4AB95900A51BA0 /* TaskView.swift */; };
 		14B72CA2682063DF1D3A9570 /* Pods_TaskTool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90EB30D81147366B5636732 /* Pods_TaskTool.framework */; };
 		2853EBA8A383B1637F740195 /* Pods_TaskTool_TaskToolUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1B27DA3BB47ADC459E9F55 /* Pods_TaskTool_TaskToolUITests.framework */; };
 		84D6EA581ED8AA4DF136A1F0 /* Pods_TaskToolTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6CD9214EA6583D29796666 /* Pods_TaskToolTests.framework */; };
@@ -63,6 +64,7 @@
 		0E71A4682A4AB7F700A51BA0 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		0E71A46A2A4AB81D00A51BA0 /* SegmentSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentSetView.swift; sourceTree = "<group>"; };
 		0E71A46C2A4AB82F00A51BA0 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		0E71A46E2A4AB95900A51BA0 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		2C1B27DA3BB47ADC459E9F55 /* Pods_TaskTool_TaskToolUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaskTool_TaskToolUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		440FABD860FDCD766B1CC3FC /* Pods-TaskTool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTool.release.xcconfig"; path = "Target Support Files/Pods-TaskTool/Pods-TaskTool.release.xcconfig"; sourceTree = "<group>"; };
 		9C670DB7C37C9CBD6BD0B10A /* Pods-TaskTool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTool.debug.xcconfig"; path = "Target Support Files/Pods-TaskTool/Pods-TaskTool.debug.xcconfig"; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 		0E6B15DC2A49732E003CD344 /* TaskView */ = {
 			isa = PBXGroup;
 			children = (
+				0E71A46E2A4AB95900A51BA0 /* TaskView.swift */,
 			);
 			path = TaskView;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				0E6B15E12A497375003CD344 /* HomeView.swift in Sources */,
 				0E71A46B2A4AB81D00A51BA0 /* SegmentSetView.swift in Sources */,
 				0E71A46D2A4AB82F00A51BA0 /* StatusView.swift in Sources */,
+				0E71A46F2A4AB95900A51BA0 /* TaskView.swift in Sources */,
 				0E6B15AF2A496688003CD344 /* ContentView.swift in Sources */,
 				0E71A4672A49803700A51BA0 /* HomeModel.swift in Sources */,
 				0E71A4692A4AB7F700A51BA0 /* TitleView.swift in Sources */,

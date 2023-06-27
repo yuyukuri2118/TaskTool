@@ -9,6 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        SegmentView()
+        VStack{
+            SegmentView()
+            TaskView()
+        }
     }
 }
