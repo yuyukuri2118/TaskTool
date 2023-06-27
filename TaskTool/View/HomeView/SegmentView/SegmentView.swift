@@ -14,7 +14,6 @@ struct SegmentView: View {
         VStack{
             TitleView()
             StatusView(viewModel: HomeViewModel(model: HomeModel()))
-            
         }
     }
 }
@@ -40,6 +39,7 @@ struct StatusView: View {
                         .background(Color.white)
                         .cornerRadius(100)
                 }
+                .animation(.easeInOut, value: viewModel.status)
             }
         }
     }
