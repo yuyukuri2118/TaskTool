@@ -19,6 +19,7 @@ struct TaskView: View {
                         .background(Color("red"))
                         .cornerRadius(8)
                 }
+                .padding(.top)
             }
         }
     }
