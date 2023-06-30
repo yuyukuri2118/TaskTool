@@ -19,13 +19,13 @@ struct StatusView: View {
                     viewModel.status[num] ?
                     Text(statusList[num])
                         .foregroundColor(.white)
-                        .frame(width: 100, height: 33)
+                        .frame(width: 100, height: 40)
                         .background(Color(red: 0.24, green: 0.24, blue: 0.24))
                         .cornerRadius(100)
                     :
                     Text(statusList[num])
                         .foregroundColor(Color(red: 0.24, green: 0.24, blue: 0.24))
-                        .frame(width: 100, height: 33)
+                        .frame(width: 100, height: 40)
                         .background(Color.white)
                         .cornerRadius(100)
                 }
