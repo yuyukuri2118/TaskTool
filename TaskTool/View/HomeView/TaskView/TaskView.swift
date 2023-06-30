@@ -9,12 +9,18 @@ import SwiftUI
 
 struct TaskView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            ScrollView {
+                ForEach(0..<4) { num in
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(width: UIScreen.main.bounds.width / 1.1,
+                               height: UIScreen.main.bounds.height / 5)
+                        .background(Color("red"))
+                        .cornerRadius(8)
+                }
+            }
+        }
     }
 }
 
-struct TaskView_Previews: PreviewProvider {
-    static var previews: some View {
-        TaskView()
-    }
-}
