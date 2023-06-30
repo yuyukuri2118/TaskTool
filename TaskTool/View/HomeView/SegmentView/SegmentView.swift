@@ -13,6 +13,10 @@ struct SegmentView: View {
             TitleView()
             StatusView(viewModel: HomeViewModel(model: HomeModel()))
             SegmentSetView()
+            Rectangle()
+              .foregroundColor(.gray)
+              .frame(width: UIScreen.main.bounds.width / 1.1, height: 1)
+              .padding(.top)
         }
     }
 }
