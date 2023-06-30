@@ -10,7 +10,7 @@ import SwiftUI
 struct TaskView: View {
     var body: some View {
         VStack{
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 ForEach(0..<4) { num in
                     Rectangle()
                         .foregroundColor(.clear)
