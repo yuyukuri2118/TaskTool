@@ -33,9 +33,6 @@
 		0E71A46B2A4AB81D00A51BA0 /* SegmentSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71A46A2A4AB81D00A51BA0 /* SegmentSetView.swift */; };
 		0E71A46D2A4AB82F00A51BA0 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71A46C2A4AB82F00A51BA0 /* StatusView.swift */; };
 		0E71A46F2A4AB95900A51BA0 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E71A46E2A4AB95900A51BA0 /* TaskView.swift */; };
-		14B72CA2682063DF1D3A9570 /* Pods_TaskTool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90EB30D81147366B5636732 /* Pods_TaskTool.framework */; };
-		2853EBA8A383B1637F740195 /* Pods_TaskTool_TaskToolUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1B27DA3BB47ADC459E9F55 /* Pods_TaskTool_TaskToolUITests.framework */; };
-		84D6EA581ED8AA4DF136A1F0 /* Pods_TaskToolTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6CD9214EA6583D29796666 /* Pods_TaskToolTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,15 +81,6 @@
 		0E71A46C2A4AB82F00A51BA0 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		0E71A46E2A4AB95900A51BA0 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		0EF954CB2A4EB7DC0092ACCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		2C1B27DA3BB47ADC459E9F55 /* Pods_TaskTool_TaskToolUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaskTool_TaskToolUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		440FABD860FDCD766B1CC3FC /* Pods-TaskTool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTool.release.xcconfig"; path = "Target Support Files/Pods-TaskTool/Pods-TaskTool.release.xcconfig"; sourceTree = "<group>"; };
-		9C670DB7C37C9CBD6BD0B10A /* Pods-TaskTool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTool.debug.xcconfig"; path = "Target Support Files/Pods-TaskTool/Pods-TaskTool.debug.xcconfig"; sourceTree = "<group>"; };
-		A2BA4812E91FD45547D0A5F4 /* Pods-TaskTool-TaskToolUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTool-TaskToolUITests.debug.xcconfig"; path = "Target Support Files/Pods-TaskTool-TaskToolUITests/Pods-TaskTool-TaskToolUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		C1B14BD6552B503508774B9B /* Pods-TaskToolTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskToolTests.release.xcconfig"; path = "Target Support Files/Pods-TaskToolTests/Pods-TaskToolTests.release.xcconfig"; sourceTree = "<group>"; };
-		D7A24DA1B1A53B55CE82FF62 /* Pods-TaskToolTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskToolTests.debug.xcconfig"; path = "Target Support Files/Pods-TaskToolTests/Pods-TaskToolTests.debug.xcconfig"; sourceTree = "<group>"; };
-		DD6CD9214EA6583D29796666 /* Pods_TaskToolTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaskToolTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1787D3FC7130736F49FDBA9 /* Pods-TaskTool-TaskToolUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskTool-TaskToolUITests.release.xcconfig"; path = "Target Support Files/Pods-TaskTool-TaskToolUITests/Pods-TaskTool-TaskToolUITests.release.xcconfig"; sourceTree = "<group>"; };
-		F90EB30D81147366B5636732 /* Pods_TaskTool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaskTool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +88,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14B72CA2682063DF1D3A9570 /* Pods_TaskTool.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,7 +95,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84D6EA581ED8AA4DF136A1F0 /* Pods_TaskToolTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +102,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2853EBA8A383B1637F740195 /* Pods_TaskTool_TaskToolUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,8 +149,6 @@
 				0E6B15BC2A49668B003CD344 /* TaskToolTests */,
 				0E6B15C62A49668B003CD344 /* TaskToolUITests */,
 				0E6B15AA2A496688003CD344 /* Products */,
-				A4B93CA302245267AED8EF11 /* Pods */,
-				2017DA9B7A0DF8C2074C1305 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -264,29 +247,6 @@
 				0E71A46E2A4AB95900A51BA0 /* TaskView.swift */,
 			);
 			path = TaskView;
-			sourceTree = "<group>";
-		};
-		2017DA9B7A0DF8C2074C1305 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F90EB30D81147366B5636732 /* Pods_TaskTool.framework */,
-				2C1B27DA3BB47ADC459E9F55 /* Pods_TaskTool_TaskToolUITests.framework */,
-				DD6CD9214EA6583D29796666 /* Pods_TaskToolTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A4B93CA302245267AED8EF11 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9C670DB7C37C9CBD6BD0B10A /* Pods-TaskTool.debug.xcconfig */,
-				440FABD860FDCD766B1CC3FC /* Pods-TaskTool.release.xcconfig */,
-				A2BA4812E91FD45547D0A5F4 /* Pods-TaskTool-TaskToolUITests.debug.xcconfig */,
-				F1787D3FC7130736F49FDBA9 /* Pods-TaskTool-TaskToolUITests.release.xcconfig */,
-				D7A24DA1B1A53B55CE82FF62 /* Pods-TaskToolTests.debug.xcconfig */,
-				C1B14BD6552B503508774B9B /* Pods-TaskToolTests.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -718,7 +678,6 @@
 		};
 		0E6B15CE2A49668B003CD344 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C670DB7C37C9CBD6BD0B10A /* Pods-TaskTool.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -751,7 +710,6 @@
 		};
 		0E6B15CF2A49668B003CD344 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 440FABD860FDCD766B1CC3FC /* Pods-TaskTool.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -784,7 +742,6 @@
 		};
 		0E6B15D12A49668B003CD344 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7A24DA1B1A53B55CE82FF62 /* Pods-TaskToolTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -805,7 +762,6 @@
 		};
 		0E6B15D22A49668B003CD344 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1B14BD6552B503508774B9B /* Pods-TaskToolTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -826,7 +782,6 @@
 		};
 		0E6B15D42A49668B003CD344 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2BA4812E91FD45547D0A5F4 /* Pods-TaskTool-TaskToolUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -845,7 +800,6 @@
 		};
 		0E6B15D52A49668B003CD344 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1787D3FC7130736F49FDBA9 /* Pods-TaskTool-TaskToolUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
