@@ -7,9 +7,9 @@
 import SwiftUI
 
 struct AddTitleView: View {
-    @State private var taskName = ""
+    @Binding var title: String
     var body: some View {
-        TextField("タスクを入力", text: $taskName)
+        TextField("タスクを入力", text: $title)
             .font(.system(size: 18, weight: .medium))
             .padding()
             .background(Color.gray.opacity(0.12))

@@ -11,7 +11,7 @@ import Combine
 @MainActor
 class AddTaskViewModel: ObservableObject {
     @Published var colorList: [Bool]
-    private var model: AddTaskModel
+    @Published var model: AddTaskModel
     private var cancellables = Set<AnyCancellable>()
 
     init(model: AddTaskModel) {

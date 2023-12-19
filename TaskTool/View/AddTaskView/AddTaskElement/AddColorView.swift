@@ -9,12 +9,14 @@ import SwiftUI
 
 struct AddColorView: View {
     @ObservedObject var viewModel: AddTaskViewModel
-    @State private var colorList = ["blue", "green", "orange", "purple", "red", "yellow"]
+    @Binding var colorList: [String]
+    @Binding var color: Int
     var body: some View {
         HStack{
             ForEach(0..<colorList.count, id: \.self) { num in
                 Button {
                     viewModel.selectColor(num)
+                    color = num
                 } label: {
                     ZStack {
                         Circle()

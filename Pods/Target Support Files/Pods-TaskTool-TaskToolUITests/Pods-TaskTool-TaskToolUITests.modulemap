@@ -1,0 +1,6 @@
+framework module Pods_TaskTool_TaskToolUITests {
+  umbrella header "Pods-TaskTool-TaskToolUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

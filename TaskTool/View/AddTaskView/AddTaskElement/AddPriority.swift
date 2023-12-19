@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct AddPriority: View {
-    @State var priority = 1
+    @Binding var priority: Int
     var body: some View {
         HStack{
             ForEach(0..<3, id: \.self) { num in
@@ -16,11 +16,11 @@ struct AddPriority: View {
                 } label: {
                     priority < num ?
                     Image(systemName: "star")
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("MainColor"))
                         .font(.largeTitle)
                     :
                     Image(systemName: "star.fill")
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("MainColor"))
                         .font(.largeTitle)
                 }
             }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var colorList = ["blue", "green", "orange", "purple", "red", "yellow"]
     var body: some View {
         NavigationStack {
             ZStack{
@@ -16,7 +17,7 @@ struct HomeView: View {
                     TaskView()
                 }
                 NavigationLink {
-                    AddTaskView()
+                    AddTaskView(colorList: $colorList)
                 } label: {
                     ZStack {
                         Circle()
