@@ -186,8 +186,8 @@
 				0E6B15AC2A496688003CD344 /* TaskToolApp.swift */,
 				0E6B15D82A4972BA003CD344 /* View */,
 				0E11C9972B3134F0003F4CBA /* Model */,
-				0E6B15B02A49668B003CD344 /* Assets.xcassets */,
 				0E11C9922B3134F0003F4CBA /* ViewModel */,
+				0E6B15B02A49668B003CD344 /* Assets.xcassets */,
 				0E6B15B22A49668B003CD344 /* Preview Content */,
 			);
 			path = TaskTool;
@@ -276,7 +276,6 @@
 				647F04F63204B9E56B3F8691 /* Pods-TaskToolTests.debug.xcconfig */,
 				9044C7EAD0479D988EB48BB3 /* Pods-TaskToolTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
