@@ -9,13 +9,20 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var colorList = ["red", "blue", "green", "orange", "purple", "yellow"]
+    @State var SelectOrder: String = "日付順"
+    @State var status: String = "全て"
     var body: some View {
         NavigationStack {
             ZStack{
                 VStack{
-                    SegmentView()
-                    TaskView(colorList: $colorList)
-                        .onAppear()
+                    SegmentView(status: $status,
+                                SelectOrder: $SelectOrder
+                    )
+                    TaskView(colorList: $colorList,
+                             selectOrder: $SelectOrder, 
+                             status: $status
+                    )
+                    .onAppear()
                 }
                 NavigationLink {
                     AddTaskView(colorList: $colorList)

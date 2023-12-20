@@ -10,10 +10,12 @@ import SwiftUI
 struct TaskView: View {
     @StateObject var realmViewModel = Task()
     @Binding var colorList: [String]
+    @Binding var selectOrder: String
+    @Binding var status: String
     var body: some View {
         VStack{
             ScrollView(showsIndicators: false) {
-                ForEach(realmViewModel.items) { item in
+                ForEach(realmViewModel.getSortedClothes(narrowDown: status, sort: selectOrder)) { item in
                     ZStack{
                         VStack(alignment: .leading) {
                             ZStack {
@@ -34,11 +36,11 @@ struct TaskView: View {
                             Group {
                                 HStack {
                                     Image(systemName: "calendar")
-                                    Text(item.taskDate)
+                                    Text("\(formatDate(item.taskDate, returnFlag: true))")
                                 }
                                 HStack {
                                     Image(systemName: "clock")
-                                    Text(item.taskTime)
+                                    Text("\(formatDate(item.taskDate, returnFlag: false))")
                                 }
                             }
                             .foregroundColor(.black.opacity(0.7))
@@ -60,6 +62,7 @@ struct TaskView: View {
                             .font(.title3)
                             Spacer()
                             Button {
+                                
                             } label: {
                                 Image(systemName: "checkmark.circle")
                             }
@@ -78,5 +81,17 @@ struct TaskView: View {
                 .padding(.top)
             }
         }
+    }
+    private func formatDate(_ date: Date, returnFlag: Bool) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        let dateString = dateFormatter.string(from: date)
+        
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:mm"
+        let timeString = timeFormatter.string(from: date)
+        
+        if returnFlag { return  "\(dateString)" }
+        else { return"\(timeString)" }
     }
 }

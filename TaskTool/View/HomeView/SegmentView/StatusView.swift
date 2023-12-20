@@ -10,11 +10,13 @@ import SwiftUI
 struct StatusView: View {
     @StateObject var viewModel: HomeViewModel
     @State var statusList: [String] = ["全て","未完了","完了"]
+    @Binding var status: String
     var body: some View {
         HStack{
             ForEach(0..<statusList.count, id: \.self) { num in
                 Button {
                     viewModel.changeStarsLength(num)
+                    status = statusList[num] 
                 } label: {
                     viewModel.status[num] ?
                     Text(statusList[num])

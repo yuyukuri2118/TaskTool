@@ -9,8 +9,9 @@ import SwiftUI
 
 struct SegmentSetView: View {
     @State var SegmentOrder: [String] = ["日付順", "重要度順"]
-    @State var SelectOrder: String = "日付順"
-    init() {
+    @Binding var SelectOrder: String
+    init(SelectOrder: Binding<String>) {
+        self._SelectOrder = SelectOrder
         UISegmentedControl.appearance().setTitleTextAttributes(
             [.foregroundColor : UIColor.white], for: .normal
         )
