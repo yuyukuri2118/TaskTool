@@ -7,28 +7,38 @@
 
 import RealmSwift
 import SwiftUI
+let realm = try! Realm()
 
 final class Task: ObservableObject {
-
-    private var clotheResults: Results<TasksDB> = {
+    
+    private var taskResults: Results<TasksDB> = {
         guard let realm = try? Realm() else {
             fatalError("Failed to create Realm instance")
         }
         return realm.objects(TasksDB.self)
     }()
-    
     var items: [TasksData] {
-        clotheResults.map(TasksData.init)
+        taskResults.map(TasksData.init)
     }
     
     private func handleRealmError(_ error: Error) {
         print(error.localizedDescription)
     }
+    private var token: NotificationToken?
+    let results: RealmSwift.Results<TasksDB> = realm.objects(TasksDB.self)
+    
+    init() {
+        // 最初の一回しか呼ばれない
+        token = results.observe { [self] _ in
+            // データ変更が起こったときに実行される
+            objectWillChange.send()
+        }
+    }
 }
 
 extension Task {
     //MARK: データを追加
-    func create(taskTitle: String, taskDate: String, taskTime: String, taskColor: Int, taskPriority: Int) {
+    func create(taskTitle: String, taskDate: Date, taskColor: Int, taskPriority: Int) {
         objectWillChange.send()
         do {
             let realm = try Realm()
@@ -36,10 +46,9 @@ extension Task {
             tasksDB.id = UUID().hashValue
             tasksDB.taskTitle = taskTitle
             tasksDB.taskDate = taskDate
-            tasksDB.taskTime = taskTime
             tasksDB.taskColor = taskColor
             tasksDB.taskPriority = taskPriority
-                
+            
             try realm.write {
                 realm.add(tasksDB)
             }
@@ -49,95 +58,104 @@ extension Task {
         }
     }
     
-//    func findById(itemName: Int) -> Results<TasksDB> {
-//        let realm = try! Realm()
-//        let tasks = realm.objects(TasksDB.self).filter("id == %@", itemName)
-//        return tasks
-//    }
-//    func getSortedClothes(word: String, sort: String ,categoryName: String) -> Results<TasksDB> {
-//        var a = false
-//        var sortName = ""
-//        var category = ""
-//        let realm = try! Realm()
-//        var clothes = realm.objects(TasksDB.self)
-//        if sort == "古い順" {
-//            a = true
-//            sortName = "nowState"
-//        } else if sort == "五十音順" {
-//            sortName = "itemName"
-//            a = true
-//        } else {
-//            sortName = "nowState"
-//        }
-//        
-//        if categoryName == "全て" {
-//            if (word == "" || word == " ") {
-//                clothes = realm.objects(TasksDB.self).sorted(byKeyPath: "\(sortName)", ascending: a)
-//            } else {
-//                clothes = realm.objects(TasksDB.self).filter("brandName CONTAINS[c] %@ OR itemName CONTAINS[c] %@", word, word).sorted(byKeyPath: "\(sortName)", ascending: a)
-//            }
-//        } else {
-//            if (word == "" || word == " ") {
-//                clothes = realm.objects(TasksDB.self).filter("categoryName == %@", categoryName).sorted(byKeyPath: "\(sortName)", ascending: a)
-//            } else {
-//                clothes = realm.objects(TasksDB.self).filter("(brandName CONTAINS[c] %@ OR itemName CONTAINS[c] %@) AND categoryName == %@", word, word, categoryName).sorted(byKeyPath: "\(sortName)", ascending: a)
-//            }
-//        }
-//                    
-//        
-//        //let clothes = realm.objects(ClothesDB.self).sorted(byKeyPath: "\(sortName)", ascending: a)
-//        return clothes
-//    }
-//    
-//    //MARK: -  データを更新
-//    func update(itemID: Int, brandName: String, itemName: String, categoryName: String, itemToggle: Bool) {
-//        objectWillChange.send()
-//        do {
-//            let realm = try Realm()
-//            try realm.write {
-//                realm.create(TasksDB.self,
-//                             value: ["id": itemID,
-//                                     "brandName": brandName,
-//                                     "itemName": itemName,
-//                                     "categoryName": categoryName,
-//                                     "isOnMain": itemToggle
-//                                    ],
-//                             update: .modified)
-//            }
-//        } catch let error {
-//            handleRealmError(error)
-//        }
-//    }
-//    
-//    //MARK: -  データを削除
-//    func delete(itemID: Int) {
-//        objectWillChange.send()
-//        guard let clothesDB = clotheResults.first(where: { $0.id == itemID})
-//        else {
-//            return
-//        }
-//        do {
-//            let realm = try Realm()
-//            try realm.write {
-//                realm.delete(clothesDB)
-//            }
-//        } catch let error {
-//            handleRealmError(error)
-//            print(error.localizedDescription)
-//        }
-//    }
-//    
-//    //MARK: - データを全削除
-//    func deleteAll() {
-//        objectWillChange.send()
-//        
-//        do {
-//            let realm = try Realm()
-//            try realm.write {
-//                realm.deleteAll()
-//            }
-//        } catch let error {
-//            print(error.localizedDescription)
-//        }
-//    }
+    func getSortedClothes(narrowDown: String, sort: String) -> Results<TasksDB> {
+        let realm = try! Realm()
+        var tasks = realm.objects(TasksDB.self)
+        
+        let currentDate: Date = Date()
+        if narrowDown == "全て" {
+            if sort == "日付順" {
+                tasks = realm.objects(TasksDB.self).sorted(by: [
+                    SortDescriptor(keyPath: "taskDate", ascending: true)
+                ])
+            } else if sort == "重要度順" {
+                tasks = realm.objects(TasksDB.self).sorted(by: [
+                    SortDescriptor(keyPath: "taskPriority", ascending: false),
+                    SortDescriptor(keyPath: "taskDate", ascending: true)])
+            }
+        } else if narrowDown == "未完了" {
+            if sort == "日付順" {
+                tasks = realm.objects(TasksDB.self)
+                    .where({ $0.taskDate >= currentDate })
+                    .sorted(by: [
+                        SortDescriptor(keyPath: "taskDate", ascending: true)
+                    ])
+            } else if sort == "重要度順" {
+                tasks = realm.objects(TasksDB.self)
+                    .where({ $0.taskDate >= currentDate })
+                    .sorted(by: [
+                        SortDescriptor(keyPath: "taskPriority", ascending: false),
+                        SortDescriptor(keyPath: "taskDate", ascending: true)
+                    ])
+            }
+        } else if narrowDown == "完了" {
+            if sort == "日付順" {
+                tasks = realm.objects(TasksDB.self)
+                    .where({ $0.taskDate < currentDate })
+                    .sorted(by: [
+                        SortDescriptor(keyPath: "taskDate", ascending: true)
+                    ])
+            } else if sort == "重要度順" {
+                tasks = realm.objects(TasksDB.self)
+                    .where({ $0.taskDate < currentDate })
+                    .sorted(by: [
+                        SortDescriptor(keyPath: "taskPriority", ascending: false),
+                        SortDescriptor(keyPath: "taskDate", ascending: true)
+                    ])
+            }
+        }
+        return tasks
+    }
+    
+    //MARK: -  データを更新
+    func update(itemID: Int, brandName: String, itemName: String, categoryName: String, itemToggle: Bool) {
+        objectWillChange.send()
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.create(TasksDB.self,
+                             value: ["id": itemID,
+                                     "brandName": brandName,
+                                     "itemName": itemName,
+                                     "categoryName": categoryName,
+                                     "isOnMain": itemToggle
+                                    ],
+                             update: .modified)
+            }
+        } catch let error {
+            handleRealmError(error)
+        }
+    }
+    
+    //    //MARK: -  データを削除
+    func delete(itemID: Int) {
+        objectWillChange.send()
+        guard let TasksDB = taskResults.first(where: { $0.id == itemID})
+        else {
+            return
+        }
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.delete(TasksDB)
+            }
+        } catch let error {
+            handleRealmError(error)
+            print(error.localizedDescription)
+        }
+    }
+    //
+    //    //MARK: - データを全削除
+    //    func deleteAll() {
+    //        objectWillChange.send()
+    //
+    //        do {
+    //            let realm = try Realm()
+    //            try realm.write {
+    //                realm.deleteAll()
+    //            }
+    //        } catch let error {
+    //            print(error.localizedDescription)
+    //        }
+    //    }
 }

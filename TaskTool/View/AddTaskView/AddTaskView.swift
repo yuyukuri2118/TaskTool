@@ -12,7 +12,7 @@ import SwiftUI
 struct AddTaskView: View {
     @StateObject var viewModel = AddTaskViewModel(model: AddTaskModel())
     @State var title = ""
-    @State var date = ""
+    @State var date = Date()
     @State var time = ""
     @State var color = 0
     @State var priority = 0
@@ -56,7 +56,8 @@ struct AddTaskView: View {
                 InsetDivider()
             }
             VStack{
-                RegisterButton(title: $title, date: $date, time: $time, color: $color, priority: $priority)
+                RegisterButton(title: $title, date: $date, color: $color, priority: $priority)
+                    .environmentObject(Task())
                 BackButton()
                     .padding(.top, 15)
             }
@@ -80,23 +81,24 @@ struct InsetDivider: View {
 //MARK: - RegisterButton
 struct RegisterButton: View {
     @Binding var title: String
-    @Binding var date: String
-    @Binding var time: String
+    @Binding var date: Date
     @Binding var color: Int
     @Binding var priority: Int
     @EnvironmentObject var realmViewModel: Task
+    @State private var showingErrorAlert = false
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         Button {
-            print("\(title)")
-            print("\(color)")
-            print("\(date)")
-            print("\(time)")
-            print("\(priority)")
-            realmViewModel.create(taskTitle: title,
-                                  taskDate: date, 
-                                  taskTime: time,
-                                  taskColor: color,
-                                  taskPriority: priority)
+            if (title.isEmpty) {
+                showingErrorAlert = true
+            } else {
+                print("\(date)")
+                realmViewModel.create(taskTitle: title,
+                                      taskDate: date,
+                                      taskColor: color,
+                                      taskPriority: priority)
+                dismiss()
+            }
         } label: {
             ZStack{
                 Text("保存")
@@ -107,16 +109,23 @@ struct RegisterButton: View {
             .background(Color("MainColor"))
             .cornerRadius(90)
             .font(.title)
-        }.padding(.top, 70)
+        }
+        .padding(.top, 70)
+        .alert(isPresented: $showingErrorAlert) {
+            Alert(title: Text("未入力の項目があります"),
+                  dismissButton: .default(Text("OK"))
+            )
+        }
     }
 }
 
 //MARK: - BackButton
 struct BackButton: View {
     @Environment(\.dismiss) var dismiss
+    @State private var showAlert = false
     var body: some View {
         Button {
-            dismiss()
+            showAlert = true
         } label: {
             ZStack{
                 Text("戻る")
@@ -130,6 +139,12 @@ struct BackButton: View {
             )
             .cornerRadius(90)
             .font(.title)
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("これまでの入力は破棄されます。"),
+                  primaryButton: .cancel(Text("戻る")),
+                  secondaryButton: .default(Text("OK"), action: { dismiss() })
+            )
         }
     }
 }

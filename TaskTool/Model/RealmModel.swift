@@ -7,11 +7,10 @@
 
 import RealmSwift
 
-class TasksDB: Object {
+class TasksDB: Object, Identifiable, Codable{
     @objc dynamic var id = 0
     @objc dynamic var taskTitle = ""
-    @objc dynamic var taskDate = ""
-    @objc dynamic var taskTime = ""
+    @objc dynamic var taskDate = Date()
     @objc dynamic var taskColor = 0
     @objc dynamic var taskPriority = 0
     // 主キーを使うと、データの更新や削除に便利
@@ -23,8 +22,7 @@ class TasksDB: Object {
 struct TasksData: Identifiable{
     let id: Int
     let taskTitle: String
-    let taskDate: String
-    let taskTime: String
+    let taskDate: Date
     let taskColor: Int
     var taskPriority: Int
 }
@@ -35,7 +33,6 @@ extension TasksData {
         id = TasksDB.id
         taskTitle = TasksDB.taskTitle
         taskDate = TasksDB.taskDate
-        taskTime = TasksDB.taskTime
         taskColor = TasksDB.taskColor
         taskPriority = TasksDB.taskPriority
     }
