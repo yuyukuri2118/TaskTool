@@ -142,7 +142,7 @@ struct BackButton: View {
         }
         .alert(isPresented: $showAlert) {
             Alert(title: Text("これまでの入力は破棄されます。"),
-                  primaryButton: .cancel(Text("戻る")),
+                  primaryButton: .cancel(Text("キャンセル")),
                   secondaryButton: .default(Text("OK"), action: { dismiss() })
             )
         }

@@ -48,6 +48,7 @@ extension Task {
             tasksDB.taskDate = taskDate
             tasksDB.taskColor = taskColor
             tasksDB.taskPriority = taskPriority
+            tasksDB.isTaskUpdata = false
             
             try realm.write {
                 realm.add(tasksDB)
@@ -76,13 +77,13 @@ extension Task {
         } else if narrowDown == "未完了" {
             if sort == "日付順" {
                 tasks = realm.objects(TasksDB.self)
-                    .where({ $0.taskDate >= currentDate })
+                    .where({ $0.isTaskUpdata == false })
                     .sorted(by: [
                         SortDescriptor(keyPath: "taskDate", ascending: true)
                     ])
             } else if sort == "重要度順" {
                 tasks = realm.objects(TasksDB.self)
-                    .where({ $0.taskDate >= currentDate })
+                    .where({ $0.isTaskUpdata == false })
                     .sorted(by: [
                         SortDescriptor(keyPath: "taskPriority", ascending: false),
                         SortDescriptor(keyPath: "taskDate", ascending: true)
@@ -91,13 +92,13 @@ extension Task {
         } else if narrowDown == "完了" {
             if sort == "日付順" {
                 tasks = realm.objects(TasksDB.self)
-                    .where({ $0.taskDate < currentDate })
+                    .where({ $0.isTaskUpdata == true })
                     .sorted(by: [
                         SortDescriptor(keyPath: "taskDate", ascending: true)
                     ])
             } else if sort == "重要度順" {
                 tasks = realm.objects(TasksDB.self)
-                    .where({ $0.taskDate < currentDate })
+                    .where({ $0.isTaskUpdata == true })
                     .sorted(by: [
                         SortDescriptor(keyPath: "taskPriority", ascending: false),
                         SortDescriptor(keyPath: "taskDate", ascending: true)
@@ -119,6 +120,24 @@ extension Task {
                                      "itemName": itemName,
                                      "categoryName": categoryName,
                                      "isOnMain": itemToggle
+                                    ],
+                             update: .modified)
+            }
+        } catch let error {
+            handleRealmError(error)
+        }
+    }
+    
+    //MARK: -  更新モード
+    func isTaskUpdataToggle(taskId: Int, isTaskUpdata: Bool) {
+        objectWillChange.send()
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.create(TasksDB.self,
+                             value: [
+                                "id": taskId,
+                                "isTaskUpdata": !isTaskUpdata
                                     ],
                              update: .modified)
             }

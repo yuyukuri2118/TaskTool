@@ -13,6 +13,7 @@ class TasksDB: Object, Identifiable, Codable{
     @objc dynamic var taskDate = Date()
     @objc dynamic var taskColor = 0
     @objc dynamic var taskPriority = 0
+    @objc dynamic var isTaskUpdata = false
     // 主キーを使うと、データの更新や削除に便利
     override static func primaryKey() -> String? {
         "id"
@@ -24,7 +25,8 @@ struct TasksData: Identifiable{
     let taskTitle: String
     let taskDate: Date
     let taskColor: Int
-    var taskPriority: Int
+    let taskPriority: Int
+    var isTaskUpdata: Bool
 }
 
 
@@ -35,5 +37,6 @@ extension TasksData {
         taskDate = TasksDB.taskDate
         taskColor = TasksDB.taskColor
         taskPriority = TasksDB.taskPriority
+        isTaskUpdata = TasksDB.isTaskUpdata
     }
 }

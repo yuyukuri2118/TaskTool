@@ -57,13 +57,16 @@ struct TaskView: View {
                             Button {
                                 realmViewModel.delete(itemID: item.id)
                             } label: {
-                                Image(systemName: "square.and.pencil")
+                                Image(systemName: "trash")
                             }
                             .font(.title3)
                             Spacer()
                             Button {
-                                
+                                realmViewModel.isTaskUpdataToggle(taskId: item.id, isTaskUpdata: item.isTaskUpdata)
                             } label: {
+                                item.isTaskUpdata ? 
+                                Image(systemName: "checkmark.circle.fill")
+                                :
                                 Image(systemName: "checkmark.circle")
                             }
                             .font(.title3)
