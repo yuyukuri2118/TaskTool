@@ -1,2 +1,29 @@
+# Xcodeの一時ファイルやビルド成果物
+DerivedData/
+xcuserdata/
+*.xcscmblueprint
+*.xcworkspace
+!default.xcworkspace
+
+# SPMで生成されるキャッシュなど
+.build/
+
+# Podsディレクトリと関連ファイル
 Pods/
+Podfile.lock
+
+# SwiftPMのチェックアウトやビルドキャッシュ
+.swiftpm/
+Package.resolved
+
+# Fastlaneが生成するログや一時ファイル
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+
+# 環境変数ファイル
+.env
+
+# macOSのメタデータファイル
 .DS_Store
